@@ -100,14 +100,30 @@ $(document).ready( function () {
     },
   ];
 
-  const container = 
+  const iconsContainer = $('.icons');
+  iconsPrint(icons, iconsContainer);
 
 });
 
 
+// Funzione per stampare le icone
+function iconsPrint (icons, iconsContainer) {
 
+  icons.forEach((icon) => {
 
+    const {family, prefix, name} = icon;
 
+    const html = `
+      <div class="icon">
+        <i class="${family} ${prefix}${name}"></i>
+        <div class="sub">${name}</div>
+      </div>`
+
+  iconsContainer.append(html);
+
+  });
+
+};
 
 
 // MILESTONE 2 -----------------------------------------------------------------------
