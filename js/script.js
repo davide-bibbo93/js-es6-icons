@@ -179,32 +179,28 @@ typesArray.forEach((element) => {
   `<option value="${element}">${element}</option>`
 });
 
+// ogni volta che l'utente selezionerà qualcosa nel menu della select
+// verrà eseguita la funzione "handler", la funzione all'interno del change
 userSelection.change(function() {
 
-  let value = $(this).val();
+  // salvo in una variabile la selezione dell'utente.
+  // la selezione è il value all'interno dell'option che l'utente ha selezionato.
+  // (la prima option in lista è quella di default)
+  const value = $(this).val();
 
+  // qui filtriamo.
+  let filteredArray = arrayIcons.filter((element) => {
+    // restituisce all'array finale (filteredArray) solo gli elementi
+    // che verificano questa condizione (come se fosse un IF)
+    // quindi solo se il type di element è uguale a quello selezionato dall'utente
+    return element.type === value;
+  });
+
+  // invoco la funzione con l'array filtrato per far funzionare il tutto
+  showIcon(filteredArray);
+
+  // se però il valore dell'option è di default, cioè all, allora mostro tutte le icone
   if (value === 'all') {
     showIcon(arrayIcons);
-  }
-
-  if (value === 'animal') {
-      animalIcons = arrayIcons.filter((element, index, array) => {
-      return element.type === 'animal'
-    });
-    showIcon(animalIcons);
-  }
-
-  if (value === 'vegetable') {
-      vegetableIcons = arrayIcons.filter((element, index, array) => {
-      return element.type === 'vegetable'
-    });
-    showIcon(vegetableIcons);
-  }
-
-  if (value === 'user') {
-      userIcons = arrayIcons.filter((element, index, array) => {
-      return element.type === 'user'
-    });
-    showIcon(userIcons);
-  }
+  };
 });

@@ -19,7 +19,7 @@ h1 {
   font-size: 20px;
   background-color: #0091ff;
   color: #fff;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 .search label{
@@ -45,11 +45,12 @@ select{
 }
 
 .img-icon {
-  text-align: center;
   font-size: 50px;
+  text-align: center;
   padding: 20px 40px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 4px 0px, rgba(0, 0, 0, 0.08) 0px 8px 16px 0px;
+  background-color: #fff;
   cursor: pointer;
 }
 
